@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+~~~~~~~~~~~~~~~~~~~~
+VNX Sample scenarios
+~~~~~~~~~~~~~~~~~~~~
+
+Name:        Uch - Redes - Practico 5
+Description: La idea del practico es que los alumnos aprendan como las rutas definen el caminios de los paquetes.
+-->
+
+<vnx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="/usr/share/xml/vnx/vnx-2.00.xsd">
+  <global>
+    <version>2.0</version>
+    <scenario_name>uch_redes_practico_5</scenario_name>
+    <automac/>
+    <vm_mgmt type="none" />
+    <!--vm_mgmt type="private" network="10.250.0.0" mask="24" offset="200">
+       <host_mapping />
+    </vm_mgmt-->
+    <vm_defaults>
+        <console id="0" display="yes"/>
+        <console id="1" display="no"/>
+    </vm_defaults>
+  </global>
+
+  <!-- Definición de Redes -->
+  <net name="Inet1" mode="virtual_bridge" />
+  <net name="Inet2" mode="virtual_bridge" />
+  <net name="VPN"   mode="virtual_bridge" />
+  <net name="PP"    mode="virtual_bridge" />
+  <net name="Lan1"  mode="virtual_bridge" />
+  <net name="Lan2"  mode="virtual_bridge" />
+
+  <!-- gateway 1 -->
+  <vm name="gw1" type="lxc" subtype="" os="">
+    <filesystem type="cow">/usr/share/vnx/filesystems/rootfs_lxc</filesystem>
+
+    <!-- Proveedor de Internet -->
+    <if id="1" net="Inet1">
+        <ipv4>1.1.1.2/30</ipv4>
+    </if>
+
+    <!-- VPN -->    
+    <if id="2" net="VPN">
+      <ipv4>10.0.0.5/30</ipv4>
+    </if>
+
+    <!-- Enlace Punto a Punto -->
+    <if id="3" net="PP">
+      <ipv4>10.0.0.1/30</ipv4>
+    </if>
+
+    <!-- Sucursal 1 -->
+    <if id="4" net="Lan1">
+        <ipv4>172.16.10.254/24</ipv4>
+    </if>
+
+    <route type="ipv4" gw="1.1.1.1">default</route>
+
+    <!--
+    <route type="ipv4" gw="10.0.0.2">10.0.2.0/24</route>
+    <route type="ipv4" gw="10.0.0.3">10.0.3.0/24</route>
+    <route type="ipv4" gw="10.0.0.4">10.0.4.0/24</route>
+    -->
+
+    <forwarding type="ip" />
+  </vm>
+
+  <!-- gateway 2 -->
+  <vm name="gw2" type="lxc" subtype="" os="">
+    <filesystem type="cow">/usr/share/vnx/filesystems/rootfs_lxc</filesystem>
+
+    <!-- Proveedor de Internet -->
+    <if id="1" net="Inet2">
+        <ipv4>2.2.2.2/30</ipv4>
+    </if>
+
+    <!-- VPN -->
+    <if id="2" net="VPN">
+      <ipv4>10.0.0.6/30</ipv4>
+    </if>
+
+    <!-- Enlace Punto a Punto -->
+    <if id="3" net="PP">
+      <ipv4>10.0.0.2/30</ipv4>
+    </if>
+
+    <!-- Sucursal 2 -->
+    <if id="4" net="Lan2">
+        <ipv4>172.16.20.254/24</ipv4>
+    </if>
+
+    <route type="ipv4" gw="2.2.2.1">default</route>
+
+    <!--
+    <route type="ipv4" gw="10.0.0.2">10.0.2.0/24</route>
+    <route type="ipv4" gw="10.0.0.3">10.0.3.0/24</route>
+    <route type="ipv4" gw="10.0.0.4">10.0.4.0/24</route>
+    -->
+    <forwarding type="ip" />
+  </vm>
+
+  <vm name="www1" type="lxc" subtype="" os="">
+    <filesystem type="cow">/usr/share/vnx/filesystems/rootfs_lxc</filesystem>
+    <if id="1" net="Lan1">
+        <ipv4>172.16.10.251/24</ipv4>
+    </if>
+    <route type="ipv4" gw="172.16.10.254">default</route>
+  </vm>
+  
+  <vm name="host_lan_1" type="lxc" subtype="" os="">
+    <filesystem type="cow">/usr/share/vnx/filesystems/rootfs_lxc</filesystem>
+    <if id="1" net="Lan1">
+        <ipv4>172.16.10.1/24</ipv4>
+    </if>
+    <route type="ipv4" gw="172.16.10.254">default</route>
+  </vm>
+
+  <vm name="host_lan_2" type="lxc" subtype="" os="">
+    <filesystem type="cow">/usr/share/vnx/filesystems/rootfs_lxc</filesystem>
+    <if id="1" net="Lan2">
+        <ipv4>172.16.20.1/24</ipv4>
+    </if>
+    <route type="ipv4" gw="172.16.20.254">default</route>
+  </vm>
+
+  <!-- redes visibles desde el host -->
+  <host>
+    <hostif net="Inet1">
+        <ipv4>1.1.1.1/30</ipv4>
+    </hostif>
+   
+    <hostif net="Inet2">
+        <ipv4>2.2.2.1/30</ipv4>
+    </hostif>
+    
+    <!-- <route type="ipv4" gw="10.0.0.1">10.0.0.0/16</route> -->
+  </host>
+
+</vnx>
+
