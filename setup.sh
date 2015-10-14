@@ -35,6 +35,10 @@ tar xfvz vnx-latest.tgz
 cd vnx-*
 sudo ./install_vnx
 
+if [ ! -f /etc/vnx.conf ]; then
+  sudo cp /usr/share/vnx/etc/vnx.conf.sample /etc/vnx.conf
+fi
+
 # download rootfs
 
 if [ ! -d /usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu-14.04-v025 ];then
