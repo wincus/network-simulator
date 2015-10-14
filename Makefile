@@ -5,7 +5,7 @@ install:
 		./setup.sh
 
 start:
-		sudo vnx $(DEFS).xml --create
+		sudo vnx -f $(DEFS).xml --create
 
 stop:
 		sudo vnx -f $(DEFS).xml --destroy
