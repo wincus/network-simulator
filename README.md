@@ -9,7 +9,7 @@
   - Clonar el repositorio:
   
 ```bash
-$ git clone git@github.com:wincus/network-simulator.git
+$ git clone https://github.com/wincus/network-simulator.git
 $ cd network-simulator
 ```
   - Para Instalar ejecute:
