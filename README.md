@@ -10,17 +10,22 @@
   
 ```bash
 $ git clone git@github.com:wincus/network-simulator.git
+$ cd network-simulator
 ```
-  - Ejecutar el script `setup.sh`
+  - Para Instalar ejecute:
 
 ```bash
-$ cd network-simulator
-$ ./setup.sh
+$ make install
 ```
 
-  - Iniciar la simulación
+  - Para Iniciar la simulación ejecute:
 
 ```bash
 $ make start
 ```
 
+  - Para generar un mapa de la red, ejecute:
+
+```bash
+$ make map
+```
