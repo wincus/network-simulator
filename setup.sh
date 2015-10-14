@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -f /etc/lsb-release ];then
+if [ -f /etc/lsb-release ]; then
   source /etc/lsb-release
   if [ $DISTRIB_ID = "Ubuntu" -a $DISTRIB_CODENAME = "trusty" ];then
     echo "Distro verified"

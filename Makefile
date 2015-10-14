@@ -2,7 +2,7 @@ AUTHOR=jmoyano
 DEFS=redes-practico5
 
 install:
-	sh setup.sh
+	./setup.sh
 
 start: rules
 	vnx $(DEFS).xml --create
