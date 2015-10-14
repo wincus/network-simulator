@@ -36,7 +36,10 @@ cd vnx-*
 sudo ./install_vnx
 
 # download rootfs
-cd /usr/share/vnx/filesystems
-sudo vnx_download_rootfs -r vnx_rootfs_lxc_ubuntu-14.04-v025.tgz -y -l
+
+if [ ! -d /usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu-14.04-v025 ];then
+    cd /usr/share/vnx/filesystems && \
+    sudo vnx_download_rootfs -r vnx_rootfs_lxc_ubuntu-14.04-v025.tgz -y -l
+fi
 
 exit 0
