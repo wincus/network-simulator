@@ -1,16 +1,17 @@
 AUTHOR=jmoyano
-DEFS=redes-practico5
+DEFS=redes-practico-5
 
 install:
-	./setup.sh
+		./setup.sh
 
-start: rules
-	vnx $(DEFS).xml --create
+start:
+		sudo vnx $(DEFS).xml --create
 
 stop:
-	vnx -f $(DEFS).xml --destroy
+		sudo vnx -f $(DEFS).xml --destroy
 
 map:
-	vnx -f $(DEFS).xml --show-map
+		sudo vnx -f $(DEFS).xml --show-map
 
-.PHONY: start stop map
+.PHONY: start stop map install
+
