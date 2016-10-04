@@ -1,6 +1,8 @@
 # Simulador de Redes
 Instala y configura una pequeña red para prácticas de laboratorio.
 
+![Network](red.png?raw=True)
+
 ## Instalación en Bare Metal
 
 ### Requisitos
@@ -61,5 +63,5 @@ $ vargant up
 
 ```bash
 $ vagrant ssh
-$> make start
+$> cd network-simulator && make start
 ```
