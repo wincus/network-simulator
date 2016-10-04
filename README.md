@@ -6,6 +6,13 @@
   - Ubuntu 14.04
 
 ### Pasos de Instalación
+
+  - Instalar git:
+
+```bash
+$ sudo apt-get update
+$ sudo apt-get install git
+```
   - Clonar el repositorio:
   
 ```bash

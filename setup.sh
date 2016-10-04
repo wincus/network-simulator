@@ -24,7 +24,8 @@ sudo apt-get -y install qemu-kvm libvirt-bin vlan xterm bridge-utils screen virt
   libreadonly-perl libterm-readline-perl-perl libnet-pcap-perl libnet-ipv6addr-perl \
   libsys-virt-perl libnet-telnet-perl liberror-perl libexception-class-perl \
   libxml-dom-perl libdbi-perl libmath-round-perl libio-pty-perl libnet-ip-perl \
-  libxml-checker-perl libxml-parser-perl libfile-homedir-perl libswitch-perl
+  libxml-checker-perl libxml-parser-perl libfile-homedir-perl libswitch-perl \
+  build-essential
 
 # install vnx per-se
 mkdir /tmp/vnx-update
