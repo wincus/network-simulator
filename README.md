@@ -38,9 +38,11 @@ $ make map
 ```
 
 ## Instalación en ambientes virtualizados
+
 ### Requisitos
-    - [Vagrant](https://www.vagrantup.com/downloads.html)
-    - git
+
+  - [Vagrant](https://www.vagrantup.com/downloads.html)
+  - git
 
 ### Pasos de Instalación
   - Clonar el repositorio:
