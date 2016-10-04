@@ -38,7 +38,9 @@ $ make map
 ```
 
 ## Instalación en ambientes virtualizados
+
 ### Requisitos
+
     - [Vagrant](https://www.vagrantup.com/downloads.html)
     - git
 
@@ -59,5 +61,5 @@ $ vargant up
 
 ```bash
 $ vagrant ssh
-$> make start
+$> cd network-simulator && make start
 ```
