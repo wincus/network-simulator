@@ -1,17 +1,17 @@
 # Simulador de Redes
+Instala y configura una pequeña red para prácticas de laboratorio.
 
-## Instalación
+## Instalación en Bare Metal
 
 ### Requisitos
-  - Ubuntu 14.04
+    - Ubuntu 14.04
 
 ### Pasos de Instalación
-
-  - Instalar git:
+  - Instalar git y make:
 
 ```bash
 $ sudo apt-get update
-$ sudo apt-get install git
+$ sudo apt-get install git build-essential
 ```
   - Clonar el repositorio:
   
@@ -35,4 +35,29 @@ $ make start
 
 ```bash
 $ make map
+```
+
+## Instalación en ambientes virtualizados
+### Requisitos
+    - [Vagrant](https://www.vagrantup.com/downloads.html)
+    - git
+
+### Pasos de Instalación
+  - Clonar el repositorio:
+  
+```bash
+$ git clone https://github.com/wincus/network-simulator.git
+$ cd network-simulator
+```
+  - Inicio de la máquina virtual:
+
+```bash
+$ vargant up
+```
+
+  - Iniciar la simulación
+
+```bash
+$ vagrant ssh
+$> make start
 ```
