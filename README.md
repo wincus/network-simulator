@@ -1,6 +1,8 @@
 # Simulador de Redes
 Instala y configura una pequeña red para prácticas de laboratorio.
 
+![Network](red.png?raw=True)
+
 ## Instalación en Bare Metal
 
 ### Requisitos
