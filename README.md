@@ -4,7 +4,7 @@ Instala y configura una pequeña red para prácticas de laboratorio.
 ## Instalación en Bare Metal
 
 ### Requisitos
-    - Ubuntu 14.04
+  - Ubuntu 14.04
 
 ### Pasos de Instalación
   - Instalar git y make:
